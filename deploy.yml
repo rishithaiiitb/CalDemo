@@ -1,0 +1,22 @@
+---
+- name: Pull Docker Image from Docker Hub
+  hosts: localhost
+  remote_user: himarishitha
+  become: false
+  tasks:
+    - name: Pull Docker Image
+      docker_image:
+        name: "rishithaiiitb/calculator"
+        source: pull
+      register: docker_pull_result
+
+    - name: Display Docker Pull Result
+      debug:
+        var: docker_pull_result
+        
+    - name: Start Docker service
+      service:
+        name: docker
+        state: started
+    - name: Running container
+      shell: docker run -it -d --name calculator rishithaiiitb/calculator
