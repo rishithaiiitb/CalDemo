@@ -48,4 +48,18 @@ pipeline {
         }
 
     }
+
+    post {
+        always {
+            // Send email notification for every build
+            emailext(
+                subject: "Pipeline Status: ${currentBuild.result}",
+                body: "Build Status: ${currentBuild.result}\n\nCheck the Jenkins console for details.",
+                to: "rishitha1201@gmail.com",
+                from: "smtp.gmail.com",
+            )
+        }
+        
+
+    }
 }
