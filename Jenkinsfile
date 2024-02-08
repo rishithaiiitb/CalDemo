@@ -55,8 +55,8 @@ pipeline {
             emailext(
                 subject: "Pipeline Status: ${currentBuild.result}",
                 body: "Build Status: ${currentBuild.result}\n\nCheck the Jenkins console for details.",
-                to: "rishitha1201@gmail.com",
-                from: "smtp.gmail.com",
+                to: "rishichinnu27@gmail.com",
+                from: "Jenkins-Master <rishichinnu27@gmail.com>",
             )
         }
         
