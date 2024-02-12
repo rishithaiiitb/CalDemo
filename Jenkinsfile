@@ -50,7 +50,7 @@ pipeline {
     }
 
     post {
-        always {
+        fail {
             // Send email notification for every build
             emailext(
                 subject: "Pipeline Status: ${currentBuild.result}",
